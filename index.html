@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medieval Life Simulator</title>
+<style>
+	  body {
+	  font-family: 'Arial', sans-serif;
+	  background-color: #f4f4f4;
+	  color: #333;
+	  max-width: 800px;
+	  margin: auto;
+	  padding: 10px;
+	}
+
+	#stats, #actions {
+	  margin-bottom: 20px;
+	}
+
+	button {
+	  margin-top: 5px;
+	  margin-right: 5px;
+	}
+</style>
+</head>
+<body>
+
+<h1>Medieval Life Simulator</h1>
+
+<div id="stats">
+  <h2>Stats</h2>
+  <p>Strength: <span id="strength">0</span></p>
+  <p>Intelligence: <span id="intelligence">0</span></p>
+  <p>Charisma: <span id="charisma">0</span></p>
+  <!-- Add other stats here -->
+</div>
+
+<div id="actions">
+  <h2>Actions</h2>
+  <button onclick="work()">Work</button>
+  <button onclick="train('strength')">Train Strength</button>
+  <!-- Add other actions here -->
+</div>
+
+<script>
+	  let playerStats = {
+	  strength: 0,
+	  intelligence: 0,
+	  charisma: 0,
+	  // Initialize other stats
+	};
+
+	function updateDisplay() {
+	  document.getElementById('strength').textContent = playerStats.strength;
+	  document.getElementById('intelligence').textContent = playerStats.intelligence;
+	  document.getElementById('charisma').textContent = playerStats.charisma;
+	  // Update other stats
+	}
+
+	function work() {
+	  // Simple work action that increases strength
+	  playerStats.strength += 1;
+	  updateDisplay();
+	}
+
+	function train(stat) {
+	  // Generic training function to increase any stat
+	  if (playerStats[stat] !== undefined) {
+		playerStats[stat] += 1;
+		updateDisplay();
+	  } else {
+		console.error(`Stat ${stat} does not exist.`);
+	  }
+	}
+
+	// Initial update display call
+	updateDisplay();
+</script>
+
+</body>
+</html>
